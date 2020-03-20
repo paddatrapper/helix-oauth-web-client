@@ -1,0 +1,28 @@
+{% load static %}
+<html>
+  <head>
+    <title>Detail SEED View</title>
+    <script src="{% static "jquery/dist/jquery.min.js" %}"></script>
+  </head>
+  <body>
+    <h1>SEED</h1>
+    <p>Below is a deep link into HELIX</p>
+    <iframe id="iframe" src="http://example.com/" style="width: 80%;height: 80%;">
+      Content pending...
+    </iframe>
+    <script>
+      $.ajax({
+        type: "GET", 
+        rl: "{{ api_url }}",
+        contentType: "application/json",
+        data: { org_id: '1' },
+        beforeSend: function(xhr, settings){
+          xhr.setRequestHeader("Authorization", "Bearer {{ token }}");},
+        success: function(data){
+          $("#iframe").attr('src',"{{ api_url }}")
+          $("#iframe").contents().find('html').html(data); 
+        }
+      });
+    </script>
+  </body>
+</html>
