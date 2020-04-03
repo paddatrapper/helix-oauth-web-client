@@ -120,9 +120,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-API_HOST = 'http://localhost:8090'
+API_HOST = 'https://helix.neep.org'
 OAUTH_TOKEN_ENDPOINT = '/oauth/authorize/'
 GRANT_TYPE = 'code'
-CLIENT_ID = 'mLR10WT1abUUgdTm2emur7KnNZh6WsUrvTj3YR0k'
+CLIENT_ID = 'ebeRyCUrDZcGBirIZwFoWFRqp8c8rj0imTQ3sLT5'
 SCOPE = 'read'
-API_ENDPOINT = '/app/#/properties/1090'
+API_ENDPOINT = '/app/#/properties/101243'
