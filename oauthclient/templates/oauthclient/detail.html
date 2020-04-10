@@ -12,15 +12,17 @@
     </iframe>
     <script>
       $.ajax({
-        type: "GET", 
-        rl: "{{ api_url }}",
+        type: "GET",
+        rl: "{{ api_url }}?authorization=Bearer%20{{ token }}",
         contentType: "application/json",
         data: { org_id: '1' },
+        /*
         beforeSend: function(xhr, settings){
           xhr.setRequestHeader("Authorization", "Bearer {{ token }}");},
+          */
         success: function(data){
-          $("#iframe").attr('src',"{{ api_url }}")
-          $("#iframe").contents().find('html').html(data); 
+          $("#iframe").attr('src',"{{ api_url }}?authorization=Bearer%20{{ token }}")
+          $("#iframe").contents().find('html').html(data);
         }
       });
     </script>
