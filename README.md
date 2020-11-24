@@ -7,7 +7,7 @@ Run using:
 
 ```bash
 $ virtualenv -p python3 pyenv
-$ pyenv/bin/pip install django
+$ pyenv/bin/pip install -r requirements.txt
 $ pyenv/bin/python manage.py migrate
 $ pyenv/bin/python runserver
 ```
