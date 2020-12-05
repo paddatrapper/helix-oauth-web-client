@@ -3,6 +3,35 @@
     <title>OAuth Test Client</title>
   </head>
   <body>
-    <a href={{ target_url }}>Log in using OAuth</a>
+    <a href="{{ code_target_url }}">Log in using OAuth authorization code</a>
+    <br>
+    <a href="#" onclick="authorize_client();">Log in using OAuth client credential</a>
+
+    <script type="text/javascript">
+      function authorize_client() {
+        var authXhtml = new XMLHttpRequest();
+        authXhtml.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            var credential = JSON.parse(this.responseText).credential;
+            var url = '{{ client_target_url }}'
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                // Success
+                var code = JSON.parse(this.responseText).access_token;
+                window.location.href = '{{ client_redirect_url }}?code=' + code ;
+                return true;
+              }
+            }
+            xhttp.open('POST', url);
+            xhttp.setRequestHeader('Authorization', 'Basic ' + credential);
+            xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+            xhttp.send('grant_type=client_credentials');
+          }
+        }
+        authXhtml.open('GET', '/oauth/authorization-code');
+        authXhtml.send();
+      }
+    </script>
   </body>
 </html>

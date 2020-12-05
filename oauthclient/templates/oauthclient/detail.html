@@ -17,9 +17,10 @@
         contentType: "application/json",
         data: { org_id: '1' },
         /*
-        beforeSend: function(xhr, settings){
-          xhr.setRequestHeader("Authorization", "Bearer {{ token }}");},
-          */
+        beforeSend: function(xhr, settings) {
+          xhr.setRequestHeader("Authorization", "Bearer {{ token }}");
+        },
+        */
         success: function(data){
           $("#iframe").attr('src',"{{ api_url }}?authorization=Bearer%20{{ token }}")
           $("#iframe").contents().find('html').html(data);

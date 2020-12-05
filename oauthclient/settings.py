@@ -120,9 +120,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-API_HOST = 'https://helix.neep.org'
-OAUTH_TOKEN_ENDPOINT = '/oauth/authorize/'
-GRANT_TYPE = 'code'
-CLIENT_ID = 'ebeRyCUrDZcGBirIZwFoWFRqp8c8rj0imTQ3sLT5'
+API_HOST = 'http://localhost:8090'
+OAUTH_TOKEN_AUTHORIZE_ENDPOINT = '/oauth/authorize/'
+OAUTH_TOKEN_ENDPOINT = '/oauth/token/'
+CLIENT_ID = '4OtVZh5eBIFffKOLPdQOap0gmzMh1jd2mDyDyvEe'
 SCOPE = 'read'
-API_ENDPOINT = '/app/#/properties/101243'
+API_ENDPOINT = '/app/#/properties/1'
+
+CC_CLIENT_ID = 'TVtg7AuGG1Duw8cGno29K0l2up5qR3sMQilJKQQv'
+CC_CLIENT_SECRET = 'ox5yILiBvAlXN45AM8cOCvtXJ2co2r0q1K51q532sJiV2ZeLFoQ2DGlsjx51GZnEAORdUC881vcfkk8FOkRFlI5fLMbgeH47NSaOXT6MzVsqxH8D5G9OhVIEgNapRNLF'
