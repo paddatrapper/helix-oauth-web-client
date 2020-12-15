@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'proxy',
 ]
 
 MIDDLEWARE = [
@@ -118,7 +119,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/non-existant/'
 
 API_HOST = 'http://localhost:8090'
 OAUTH_TOKEN_AUTHORIZE_ENDPOINT = '/oauth/authorize/'
@@ -127,5 +128,5 @@ CLIENT_ID = '4OtVZh5eBIFffKOLPdQOap0gmzMh1jd2mDyDyvEe'
 SCOPE = 'read'
 API_ENDPOINT = '/app/#/properties/1'
 
-CC_CLIENT_ID = 'TVtg7AuGG1Duw8cGno29K0l2up5qR3sMQilJKQQv'
-CC_CLIENT_SECRET = 'ox5yILiBvAlXN45AM8cOCvtXJ2co2r0q1K51q532sJiV2ZeLFoQ2DGlsjx51GZnEAORdUC881vcfkk8FOkRFlI5fLMbgeH47NSaOXT6MzVsqxH8D5G9OhVIEgNapRNLF'
+CC_CLIENT_ID = 'seed_user@example.com'
+CC_CLIENT_SECRET = 'USER_API_KEY'
