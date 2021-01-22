@@ -47,12 +47,21 @@ def generate_authorization():
     encoded_credential = base64.b64encode(credential.encode('utf-8')).decode()
     return encoded_credential
 
+def get_csrf():
+    response = requests.get(settings.API_HOST)
+    print(response.cookies)
+    return response.cookies.get('csrftoken')
+
 def proxy_view(request, path):
+    csrf = get_csrf()
     remote_url = f'{settings.API_HOST}/{path}'
     authorization = generate_authorization()
     extra_requests_args = {
         'headers': {
             'Authorization': f'Basic {authorization }',
-        }
+        },
+        'cookies': {
+            'csrftoken': csrf,
+        },
     }
     return django_proxy(request, remote_url, extra_requests_args)
