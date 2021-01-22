@@ -52,7 +52,6 @@ def get_csrf(path):
     return response.cookies.get('csrftoken')
 
 def proxy_view(request, path):
-    print(path)
     remote_url = f'{settings.API_HOST}/{path}'
     authorization = generate_authorization()
     extra_requests_args = {
